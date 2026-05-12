@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roieventos · Consultoría en ROI y Estudios de Impacto Económico</title>
+<meta name="description" content="Consultoría especializada en PreROI, ROI y Estudios de Impacto Económico para festivales, conciertos y eventos culturales. Una marca de Naroe Consulting SL.">
+<meta name="keywords" content="ROI eventos, PreROI, Estudios Impacto Económico, Consultoría Festivales, Canarias, Promotur, Turismo de Tenerife, Naroe Consulting">
+<meta name="author" content="Naroe Consulting SL">
+<meta property="og:title" content="Roieventos · ROI y Estudios de Impacto Económico">
+<meta property="og:description" content="Medimos el retorno real de festivales, conciertos y eventos. Datos, metodología y rigor económico.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roieventos.es">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root {
+    /* Paleta editorial - Naroe Consulting */
+    --bg-primary: #FAF6EE;        /* Crema cálido base */
+    --bg-secondary: #F1EADC;      /* Beige más profundo */
+    --bg-tertiary: #E8DFCB;       /* Beige medio */
+    --bg-paper: #FFFFFF;          /* Blanco puro para cards */
+    --bg-dark: #2C1810;           /* Granate muy oscuro casi negro */
+    --bg-burgundy: #4A1C24;       /* Burdeos profundo para bloques destacados */
+
+    /* Acentos burdeos/granate */
+    --burgundy: #722F37;
+    --burgundy-light: #8B3A42;
+    --burgundy-dark: #5C1F26;
+    --burgundy-soft: rgba(114, 47, 55, 0.08);
+
+    /* Dorado suave */
+    --gold: #C9A961;
+    --gold-light: #D9BD7F;
+    --gold-dark: #A88A48;
+    --gold-soft: rgba(201, 169, 97, 0.15);
+
+    /* Texto */
+    --text-primary: #2C1810;
+    --text-body: #4A3B36;
+    --text-muted: #8B7A6F;
+    --text-light: #B5A89B;
+    --text-on-dark: #F5EDDC;
+
+    /* Bordes */
+    --rule: 1px solid #D4C9B5;
+    --rule-thick: 2px solid var(--text-primary);
+    --rule-gold: 1px solid var(--gold);
+
+    /* Tipografía */
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'Inter', monospace;
+
+    /* Transiciones */
+    --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-fast: 0.25s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-body);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* Texturas sutiles tipo papel */
+body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+        radial-gradient(circle at 25% 30%, rgba(201, 169, 97, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 75% 70%, rgba(114, 47, 55, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* PAGE LOADER */
+.page-loader {
+    position: fixed; inset: 0; z-index: 9999;
+    background: var(--bg-primary);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    animation: hideLoader 0.6s ease 2s forwards;
+}
+.page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-mark {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--burgundy);
+    font-style: italic;
+    font-weight: 400;
+}
+.loader-line {
+    width: 40px; height: 1px;
+    background: var(--gold);
+    margin-top: 20px;
+    animation: lineGrow 1.4s ease-in-out infinite;
+}
+@keyframes lineGrow { 0%, 100% { width: 20px; opacity: 0.4; } 50% { width: 80px; opacity: 1; } }
+@keyframes hideLoader { to { opacity: 0; visibility: hidden; } }
+
+/* TIPOGRAFÍA EDITORIAL */
+h1, h2, h3, h4, h5 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+}
+h1 {
+    font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+h2 { font-size: clamp(2.2rem, 4.5vw, 3.6rem); font-weight: 700; }
+h3 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); font-weight: 600; }
+h4 { font-size: 1.3rem; font-weight: 600; }
+p { font-family: var(--font-body); }
+
+.eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+.eyebrow::before {
+    content: ''; width: 32px; height: 1px;
+    background: var(--burgundy);
+}
+
+.subhead {
+    font-family: var(--font-serif);
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    font-weight: 400;
+    color: var(--text-body);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 720px;
+}
+
+/* CONTAINER */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+.container-narrow { max-width: 980px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+section { padding: 7rem 0; position: relative; }
+
+/* MASTHEAD / NAVBAR estilo periódico */
+.masthead {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(250, 246, 238, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: var(--rule);
+    transition: var(--transition);
+}
+.masthead-top {
+    padding: 8px 0;
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+.masthead-top-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+    display: flex; justify-content: space-between;
+}
+.masthead-top span { color: var(--gold); }
+.masthead-main { padding: 1.1rem 0; }
+.nav-inner {
+    max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+}
+.nav-brand {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    display: flex; align-items: baseline; gap: 0.5rem;
+}
+.nav-brand em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--burgundy);
+}
+.nav-brand .dot {
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-right: 4px;
+    align-self: center;
+}
+.nav-menu { display: flex; gap: 2.2rem; align-items: center; list-style: none; }
+.nav-menu a {
+    font-size: 0.84rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color var(--transition-fast);
+    text-transform: uppercase;
+}
+.nav-menu a:hover { color: var(--burgundy); }
+.nav-cta {
+    padding: 0.65rem 1.4rem;
+    background: var(--burgundy);
+    color: var(--bg-primary) !important;
+    border-radius: 1px;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.12em !important;
+    transition: var(--transition);
+}
+.nav-cta:hover { background: var(--burgundy-dark); }
+.hamburger {
+    display: none; background: none; border: none; cursor: pointer;
+    color: var(--text-primary); font-size: 1.4rem;
+}
+@media (max-width: 968px) {
+    .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--bg-primary); flex-direction: column; padding: 2rem;
+        gap: 1.4rem; border-top: var(--rule); }
+    .nav-menu.open { display: flex; }
+    .hamburger { display: block; }
+    .masthead-top-inner span { display: none; }
+}
+
+/* HERO - editorial cover */
+.hero {
+    padding-top: 11rem; padding-bottom: 4rem;
+    min-height: 95vh;
+    display: flex; align-items: center;
+    background: var(--bg-primary);
+    border-bottom: var(--rule);
+    position: relative;
+    overflow: hidden;
+}
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+}
+.hero-issue {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.32em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+}
+.hero-issue span { color: var(--burgundy); font-weight: 600; }
+.hero h1 {
+    margin-bottom: 1.6rem;
+    color: var(--text-primary);
+}
+.hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--burgundy);
+}
+.hero-deck {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    font-weight: 400;
+    color: var(--text-body);
+    line-height: 1.5;
+    margin-bottom: 2.6rem;
+    max-width: 600px;
+    border-left: 3px solid var(--gold);
+    padding-left: 1.5rem;
+}
+.hero-byline {
+    display: flex; gap: 2rem; align-items: center;
+    padding: 1.5rem 0;
+    border-top: var(--rule);
+    border-bottom: var(--rule);
+    margin-bottom: 2.4rem;
+}
+.byline-item {
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+.byline-item .label {
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+}
+.byline-item .value { color: var(--text-primary); font-weight: 600; }
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 1.05rem 2rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    border-radius: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+.btn-primary {
+    background: var(--burgundy);
+    color: var(--bg-primary);
+}
+.btn-primary:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(114, 47, 55, 0.25);
+}
+.btn-ghost {
+    background: transparent; color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+}
+.btn-ghost:hover { background: var(--text-primary); color: var(--bg-primary); }
+.btn i { transition: transform var(--transition-fast); }
+.btn:hover i { transform: translateX(4px); }
+
+/* Hero visual side - editorial infographic preview */
+.hero-visual {
+    position: relative;
+    padding: 2rem;
+}
+.hero-card {
+    background: var(--bg-paper);
+    padding: 2.5rem 2rem;
+    border: var(--rule);
+    box-shadow: 0 20px 60px rgba(44, 24, 16, 0.06);
+    position: relative;
+}
+.hero-card::before {
+    content: 'EJEMPLO ILUSTRATIVO';
+    position: absolute; top: -10px; left: 20px;
+    background: var(--bg-primary);
+    padding: 0 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+}
+.hero-card-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+.hero-card-sub {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+    letter-spacing: 0.05em;
+}
+.hero-bigfig {
+    font-family: var(--font-display);
+    font-size: 3.6rem;
+    color: var(--burgundy);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+}
+.hero-bigfig em { font-style: italic; font-size: 0.5em; color: var(--gold); font-weight: 400; }
+.hero-bigfig-label {
+    font-size: 0.78rem;
+    color: var(--text-body);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.6rem;
+}
+.hero-mini-bars { display: flex; flex-direction: column; gap: 0.6rem; }
+.mini-bar { display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem; }
+.mini-bar-label { width: 90px; color: var(--text-body); }
+.mini-bar-track { flex: 1; height: 6px; background: var(--bg-tertiary); position: relative; overflow: hidden; }
+.mini-bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--burgundy); transform-origin: left; transform: scaleX(0); transition: transform 1.6s ease 0.5s; }
+.mini-bar.gold .mini-bar-fill { background: var(--gold); }
+.reveal-stagger.visible .mini-bar-fill { transform: scaleX(1); }
+.mini-bar-val { font-weight: 600; color: var(--text-primary); width: 50px; text-align: right; font-family: var(--font-display); }
+
+@media (max-width: 968px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { padding: 0; }
+}
+
+/* STATS strip - dato editorial */
+.stats {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+    border-bottom: var(--rule);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+.stat-item {
+    padding: 1rem 1.5rem;
+    border-left: var(--rule);
+    text-align: left;
+}
+.stat-item:first-child { border-left: none; padding-left: 0; }
+.stat-num {
+    font-family: var(--font-display);
+    font-size: clamp(2.3rem, 4vw, 3.2rem);
+    color: var(--burgundy);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    display: block;
+}
+.stat-num em { font-style: italic; color: var(--gold); font-weight: 400; }
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-body);
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+}
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(3) { border-left: none; padding-left: 0; }
+    .stat-item { padding: 1rem 0.8rem; margin-bottom: 1.5rem; }
+}
+
+/* PHOTO STRIP MOSAIC */
+.photostrip { padding: 0; background: var(--bg-dark); border-bottom: var(--rule); }
+.photostrip-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    height: 340px;
+}
+.photostrip-cell {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-right: 1px solid rgba(245, 237, 220, 0.08);
+}
+.photostrip-cell:last-child { border-right: none; }
+.photostrip-cell .photostrip-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(40%) brightness(0.55) sepia(15%);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s ease;
+}
+.photostrip-cell:hover .photostrip-img {
+    transform: scale(1.08);
+    filter: grayscale(0%) brightness(0.75) sepia(0%);
+}
+.photostrip-cell::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(44, 24, 16, 0.9) 0%, rgba(44, 24, 16, 0.25) 60%, transparent 100%);
+    pointer-events: none;
+}
+.photostrip-caption {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+    color: var(--bg-primary);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.25;
+}
+.photostrip-caption span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-style: normal;
+    font-weight: 600;
+}
+@media (max-width: 968px) {
+    .photostrip-grid { grid-template-columns: repeat(2, 1fr); height: auto; }
+    .photostrip-cell { height: 220px; }
+    .photostrip-cell:nth-child(5) { display: none; }
+}
+
+/* FEATURE BANNER full-bleed */
+.feature-banner {
+    padding: 0;
+    min-height: 560px;
+    background-color: var(--bg-dark);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    border-bottom: var(--rule);
+    display: flex;
+    align-items: flex-end;
+}
+.feature-banner::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(74, 28, 36, 0.3) 0%, rgba(44, 24, 16, 0.88) 100%);
+}
+.feature-banner-content {
+    position: relative;
+    z-index: 1;
+    color: var(--bg-primary);
+    padding: 5rem 0;
+    max-width: 760px;
+}
+.feature-banner-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1.3rem;
+}
+.feature-banner-tag::before {
+    content: ''; width: 36px; height: 1px; background: var(--gold);
+}
+.feature-banner h2 {
+    color: var(--bg-primary);
+    font-size: clamp(2rem, 3.8vw, 3.2rem);
+    margin-bottom: 1.3rem;
+    line-height: 1.15;
+}
+.feature-banner h2 em { color: var(--gold); font-style: italic; font-weight: 400; }
+.feature-banner p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: rgba(245, 237, 220, 0.85);
+    line-height: 1.55;
+    max-width: 620px;
+    margin-bottom: 2rem;
+}
+.feature-banner .photo-credit {
+    position: absolute;
+    bottom: 1.2rem; right: 2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(245, 237, 220, 0.5);
+    text-transform: uppercase;
+    z-index: 1;
+}
+@media (max-width: 968px) {
+    .feature-banner { background-attachment: scroll; min-height: 420px; }
+}
+
+/* HERO IMAGE FRAME */
+.hero-imgframe {
+    position: relative;
+    margin-bottom: 1.5rem;
+    height: 220px;
+    overflow: hidden;
+    border: var(--rule);
+}
+.hero-imgframe::before {
+    content: 'EN PORTADA';
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--burgundy);
+    color: var(--bg-primary);
+    padding: 4px 10px;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    z-index: 2;
+    font-weight: 600;
+}
+.hero-imgframe-img {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(25%) brightness(0.85) sepia(10%);
+    transition: transform 1s ease;
+}
+.hero-imgframe:hover .hero-imgframe-img { transform: scale(1.05); }
+.hero-imgframe::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.15), transparent);
+}
+
+/* SECTION HEADER (común) */
+.section-header { margin-bottom: 4rem; }
+.section-header.center { text-align: center; max-width: 760px; margin: 0 auto 4rem; }
+.section-header .subhead { margin-top: 1.2rem; }
+.section-header.center .subhead { margin-left: auto; margin-right: auto; }
+
+.section-number {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--burgundy);
+    font-style: italic;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* SERVICIOS - editorial */
+.services { background: var(--bg-primary); border-bottom: var(--rule); }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: var(--rule);
+}
+.service-col {
+    padding: 3rem 2rem;
+    border-right: var(--rule);
+    border-bottom: var(--rule);
+    transition: background var(--transition-fast);
+    position: relative;
+}
+.service-col:last-child { border-right: none; }
+.service-col:hover { background: var(--bg-secondary); }
+.service-col-num {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 1.4rem;
+    opacity: 0.7;
+}
+.service-col h3 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+.service-col h3 em { font-style: italic; color: var(--burgundy); }
+.service-col p {
+    color: var(--text-body);
+    margin-bottom: 1.4rem;
+    font-size: 0.95rem;
+}
+.service-col ul { list-style: none; font-size: 0.88rem; }
+.service-col li {
+    padding: 0.55rem 0;
+    color: var(--text-body);
+    border-top: 1px solid rgba(212, 201, 181, 0.5);
+    display: flex; align-items: baseline; gap: 0.6rem;
+}
+.service-col li::before {
+    content: '—';
+    color: var(--gold);
+    font-weight: 700;
+}
+@media (max-width: 968px) {
+    .services-grid { grid-template-columns: 1fr; border-top: none; }
+    .service-col { border-right: none; }
+}
+
+/* DATOS / INFOGRAFÍAS */
+.data-feature {
+    background: var(--bg-secondary);
+    border-bottom: var(--rule);
+    padding: 8rem 0;
+}
+.data-intro {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    align-items: end;
+}
+.data-intro .dropcap::first-letter {
+    font-family: var(--font-display);
+    font-size: 4.5em;
+    float: left;
+    line-height: 0.85;
+    margin: 0.05em 0.12em 0 -0.04em;
+    color: var(--burgundy);
+    font-weight: 700;
+    font-style: italic;
+}
+.data-intro p {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    line-height: 1.55;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+.data-intro .data-cta {
+    border-left: 2px solid var(--burgundy);
+    padding-left: 1.6rem;
+    font-size: 0.95rem;
+    color: var(--text-body);
+}
+.data-intro .data-cta strong { display: block; font-family: var(--font-display); color: var(--burgundy); font-size: 1.5rem; margin-bottom: 0.6rem; }
+
+.infographic-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+.infographic-card {
+    background: var(--bg-paper);
+    padding: 2.5rem;
+    border: var(--rule);
+    box-shadow: 0 10px 40px rgba(44, 24, 16, 0.04);
+    position: relative;
+}
+.infographic-card.full { grid-column: 1 / -1; }
+.infographic-card-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 1rem;
+    border-bottom: var(--rule);
+    margin-bottom: 1.8rem;
+}
+.infographic-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+.infographic-card-num {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+.infographic-card-foot {
+    margin-top: 1.4rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(212, 201, 181, 0.5);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+/* SVG bars chart */
+.bars-chart { width: 100%; }
+.bars-chart .bar-row { display: flex; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid rgba(212, 201, 181, 0.4); }
+.bars-chart .bar-row:last-child { border: none; }
+.bar-row .bar-label {
+    width: 38%;
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    padding-right: 1rem;
+}
+.bar-row .bar-track {
+    flex: 1;
+    height: 16px;
+    background: var(--bg-tertiary);
+    position: relative;
+    overflow: hidden;
+}
+.bar-row .bar-fill {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    background: linear-gradient(90deg, var(--burgundy), var(--burgundy-light));
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bar-row.gold .bar-fill { background: linear-gradient(90deg, var(--gold-dark), var(--gold)); }
+.reveal-stagger.visible .bar-fill { transform: scaleX(var(--scale, 1)); }
+.bar-row .bar-value {
+    width: 90px;
+    text-align: right;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+/* Donut chart container */
+.donut-wrap {
+    display: flex; align-items: center; gap: 2rem;
+}
+.donut-svg { width: 180px; height: 180px; flex-shrink: 0; }
+.donut-legend { flex: 1; font-size: 0.88rem; }
+.legend-item {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(212, 201, 181, 0.4);
+}
+.legend-item:last-child { border: none; }
+.legend-left { display: flex; align-items: center; gap: 0.7rem; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.legend-label { color: var(--text-body); }
+.legend-value { font-family: var(--font-display); font-weight: 700; color: var(--text-primary); }
+
+/* Multiplicador económico - waterfall */
+.multiplier-chart { padding: 1rem 0; }
+.multiplier-row {
+    display: grid;
+    grid-template-columns: 130px 1fr 120px;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(212, 201, 181, 0.4);
+}
+.multiplier-row:last-child { border: none; font-weight: 600; }
+.multiplier-row.total {
+    border-top: 2px solid var(--text-primary);
+    border-bottom: none;
+    padding-top: 1.4rem;
+    margin-top: 0.5rem;
+}
+.mp-label { font-size: 0.95rem; color: var(--text-primary); font-weight: 500; }
+.mp-label small { display: block; font-weight: 400; font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; font-style: italic; font-family: var(--font-serif); }
+.mp-bar-wrap { position: relative; height: 38px; display: flex; align-items: center; }
+.mp-bar {
+    height: 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mp-bar.direct { background: var(--burgundy-dark); }
+.mp-bar.indirect { background: var(--burgundy); }
+.mp-bar.induced { background: var(--burgundy-light); }
+.mp-bar.total { background: linear-gradient(90deg, var(--burgundy-dark), var(--burgundy), var(--gold)); }
+.reveal-stagger.visible .mp-bar { transform: scaleX(var(--scale, 1)); }
+.mp-value { font-family: var(--font-display); font-weight: 700; color: var(--text-primary); text-align: right; font-size: 1.1rem; }
+.multiplier-row.total .mp-value { color: var(--burgundy); font-size: 1.4rem; }
+
+@media (max-width: 968px) {
+    .infographic-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .data-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .donut-wrap { flex-direction: column; gap: 1.4rem; }
+    .multiplier-row { grid-template-columns: 1fr 90px; }
+    .mp-bar-wrap { display: none; }
+}
+
+/* METODOLOGÍA - timeline visual */
+.methodology { background: var(--bg-primary); border-bottom: var(--rule); }
+.method-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+.method-timeline-line {
+    position: absolute;
+    top: 50px;
+    left: 7%; right: 7%;
+    height: 1px;
+    background: var(--text-primary);
+    z-index: 0;
+}
+.method-timeline-line::before,
+.method-timeline-line::after {
+    content: ''; position: absolute;
+    width: 8px; height: 8px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    top: -3.5px;
+}
+.method-timeline-line::before { left: -4px; }
+.method-timeline-line::after { right: -4px; background: var(--gold); }
+.method-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+}
+.method-step {
+    text-align: center;
+    padding: 0 0.5rem;
+}
+.method-step-circle {
+    width: 100px; height: 100px;
+    background: var(--bg-primary);
+    border: 2px solid var(--text-primary);
+    border-radius: 50%;
+    margin: 0 auto 1.8rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--burgundy);
+    font-weight: 700;
+    font-style: italic;
+    position: relative;
+    transition: var(--transition);
+}
+.method-step-circle::before {
+    content: ''; position: absolute; inset: -8px;
+    border: 1px dashed var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    transition: var(--transition);
+}
+.method-step:hover .method-step-circle {
+    background: var(--burgundy);
+    color: var(--bg-primary);
+    border-color: var(--burgundy);
+}
+.method-step:hover .method-step-circle::before { opacity: 1; transform: scale(1.05); }
+.method-step h4 {
+    color: var(--text-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+.method-step p {
+    font-size: 0.88rem;
+    color: var(--text-body);
+    line-height: 1.6;
+}
+.method-step-icon {
+    width: 38px; height: 38px;
+    margin: 0 auto 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+}
+@media (max-width: 968px) {
+    .method-steps { grid-template-columns: 1fr; gap: 2.5rem; }
+    .method-timeline-line { display: none; }
+}
+
+/* SECTORES - editorial cards */
+.sectors {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    border-bottom: var(--rule);
+}
+.sectors .section-header h2 { color: var(--bg-primary); }
+.sectors .section-header .subhead { color: rgba(245, 237, 220, 0.8); }
+.sectors .eyebrow { color: var(--gold); }
+.sectors .eyebrow::before { background: var(--gold); }
+.sectors .section-number { color: var(--gold); }
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(245, 237, 220, 0.15);
+}
+.sector-card {
+    padding: 2.6rem 2rem;
+    border-right: 1px solid rgba(245, 237, 220, 0.15);
+    border-bottom: 1px solid rgba(245, 237, 220, 0.15);
+    transition: background var(--transition-fast);
+    cursor: pointer;
+}
+.sector-card:nth-child(3n) { border-right: none; }
+.sector-card:hover { background: rgba(245, 237, 220, 0.04); }
+.sector-card-num {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.25em;
+    font-style: italic;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.sector-card h4 {
+    color: var(--bg-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+.sector-card p {
+    color: rgba(245, 237, 220, 0.7);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+.sector-card-icon {
+    width: 44px; height: 44px;
+    margin-bottom: 1.4rem;
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: flex-start;
+    font-size: 1.4rem;
+}
+@media (max-width: 968px) {
+    .sectors-grid { grid-template-columns: 1fr; }
+    .sector-card { border-right: none; }
+}
+
+/* CASOS DE ÉXITO */
+.cases { background: var(--bg-primary); border-bottom: var(--rule); }
+.cases-list {
+    display: flex; flex-direction: column;
+    border-top: var(--rule);
+}
+.case-row {
+    display: grid;
+    grid-template-columns: 80px 1.2fr 1fr 220px;
+    gap: 2.5rem;
+    padding: 3rem 0;
+    border-bottom: var(--rule);
+    align-items: center;
+    transition: background var(--transition-fast);
+}
+.case-row:hover { background: var(--bg-secondary); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
+.case-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+}
+.case-info .case-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    color: var(--burgundy);
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+}
+.case-info h4 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+.case-info h4 em { font-style: italic; color: var(--burgundy); }
+.case-desc {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.55;
+    font-style: italic;
+}
+.case-metrics {
+    text-align: right;
+    padding-left: 1.5rem;
+    border-left: var(--rule);
+}
+.case-metric { margin-bottom: 1rem; }
+.case-metric:last-child { margin-bottom: 0; }
+.case-metric .num {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--burgundy);
+    font-weight: 700;
+    line-height: 1;
+    display: block;
+}
+.case-metric .label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+}
+@media (max-width: 968px) {
+    .case-row { grid-template-columns: 1fr; gap: 1.5rem; padding: 2.5rem 0; }
+    .case-metrics { text-align: left; padding-left: 0; border-left: none; border-top: var(--rule); padding-top: 1.5rem; }
+    .case-metric { display: inline-block; margin-right: 2rem; }
+}
+
+/* PULL QUOTE separador */
+.pullquote-section {
+    background: var(--bg-burgundy);
+    color: var(--text-on-dark);
+    padding: 6rem 0;
+    border-bottom: var(--rule);
+    position: relative;
+    overflow: hidden;
+}
+.pullquote-section::before {
+    content: '"';
+    position: absolute;
+    top: -40px; left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-display);
+    font-size: 22rem;
+    color: var(--gold);
+    opacity: 0.15;
+    line-height: 1;
+}
+.pullquote-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+.pullquote-content blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-style: italic;
+    color: var(--bg-primary);
+    line-height: 1.35;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+.pullquote-content blockquote em { color: var(--gold); font-style: italic; }
+.pullquote-attribution {
+    display: inline-flex; align-items: center; gap: 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.pullquote-attribution::before {
+    content: ''; width: 32px; height: 1px; background: var(--gold);
+}
+
+/* CLIENTES - mosaico minimal */
+.clients {
+    background: var(--bg-primary);
+    padding: 6rem 0;
+    border-bottom: var(--rule);
+}
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: var(--rule);
+    border-left: var(--rule);
+    margin-top: 3rem;
+}
+.client-cell {
+    border-right: var(--rule);
+    border-bottom: var(--rule);
+    padding: 2.2rem 1.4rem;
+    text-align: center;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 130px;
+    transition: var(--transition-fast);
+    cursor: default;
+}
+.client-cell:hover { background: var(--bg-secondary); }
+.client-cell .name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+.client-cell:hover .name { color: var(--burgundy); }
+.client-cell em {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-style: normal;
+}
+@media (max-width: 968px) {
+    .clients-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* EQUIPO - perfiles editoriales */
+.team { background: var(--bg-secondary); border-bottom: var(--rule); }
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+.team-card {
+    background: var(--bg-paper);
+    padding: 0;
+    border: var(--rule);
+    overflow: hidden;
+    transition: var(--transition);
+}
+.team-card:hover { box-shadow: 0 30px 60px rgba(44, 24, 16, 0.08); transform: translateY(-3px); }
+.team-card-header {
+    padding: 2.5rem 2.5rem 1.5rem;
+    background: var(--bg-primary);
+    border-bottom: var(--rule);
+    position: relative;
+}
+.team-init {
+    width: 80px; height: 80px;
+    background: var(--burgundy);
+    color: var(--bg-primary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+}
+.team-card h4 {
+    font-size: 1.7rem;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+.team-role {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--burgundy);
+    font-style: italic;
+}
+.team-body { padding: 2rem 2.5rem 2.5rem; }
+.team-bio {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    margin-bottom: 1.6rem;
+}
+.team-bio::first-letter {
+    font-family: var(--font-display);
+    font-size: 2.6em;
+    float: left;
+    line-height: 0.9;
+    margin: 0.05em 0.12em 0 -0.04em;
+    color: var(--burgundy);
+    font-weight: 700;
+    font-style: italic;
+}
+.team-expertise {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.team-expertise span {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+    background: var(--bg-secondary);
+    color: var(--text-body);
+    border: 1px solid var(--bg-tertiary);
+    letter-spacing: 0.08em;
+}
+.team-social { display: flex; gap: 0.6rem; padding-top: 1.2rem; border-top: var(--rule); }
+.team-social a {
+    width: 38px; height: 38px;
+    border: 1px solid var(--bg-tertiary);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+    font-size: 0.85rem;
+}
+.team-social a:hover { border-color: var(--burgundy); color: var(--burgundy); }
+@media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* CTA BANNER */
+.cta-banner {
+    background: var(--bg-primary);
+    padding: 7rem 0;
+    border-bottom: var(--rule);
+    text-align: center;
+    position: relative;
+}
+.cta-banner h2 {
+    margin-bottom: 1.4rem;
+}
+.cta-banner h2 em { font-style: italic; color: var(--burgundy); }
+.cta-banner p {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-body);
+    max-width: 620px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.5;
+}
+.cta-decoration {
+    width: 60px; height: 1px;
+    background: var(--gold);
+    margin: 0 auto 2.5rem;
+    position: relative;
+}
+.cta-decoration::before,
+.cta-decoration::after {
+    content: ''; position: absolute; top: -3px;
+    width: 7px; height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+}
+.cta-decoration::before { left: -10px; }
+.cta-decoration::after { right: -10px; }
+
+/* CONTACTO */
+.contact { background: var(--bg-secondary); border-bottom: var(--rule); }
+.contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 4rem;
+    max-width: 1080px;
+    margin: 0 auto;
+    align-items: start;
+}
+.contact-grid > * { min-width: 0; }
+.contact-info h2 { margin-bottom: 1.4rem; font-size: clamp(1.8rem, 3vw, 2.4rem); }
+.contact-info > p {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-body);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+.contact-detail {
+    display: flex; gap: 1.1rem; align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: var(--rule);
+}
+.contact-detail:first-of-type { border-top: var(--rule); }
+.contact-detail i {
+    color: var(--burgundy);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    width: 18px;
+}
+.contact-detail .label {
+    font-size: 0.65rem; color: var(--text-muted);
+    letter-spacing: 0.18em; text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    font-weight: 600;
+}
+.contact-detail .value {
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+.contact-form {
+    background: var(--bg-paper);
+    padding: 2.2rem;
+    border: var(--rule);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.contact-form > .form-group:first-child { margin-top: 0; }
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.7rem 0.85rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--bg-tertiary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    transition: var(--transition-fast);
+    box-sizing: border-box;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--burgundy);
+    background: var(--bg-paper);
+}
+.form-group textarea { resize: vertical; min-height: 90px; max-height: 200px; font-family: var(--font-body); }
+.contact-form .btn { width: 100%; justify-content: center; margin-top: 0.4rem; padding: 0.95rem 1.5rem; }
+@media (max-width: 968px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; max-width: 560px; }
+    .contact-form { padding: 1.6rem; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* FOOTER */
+.footer {
+    background: var(--bg-dark);
+    color: var(--text-on-dark);
+    padding: 5rem 0 2rem;
+}
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(245, 237, 220, 0.15);
+    margin-bottom: 2rem;
+}
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bg-primary);
+    margin-bottom: 1rem;
+    display: flex; align-items: baseline; gap: 0.5rem;
+}
+.footer-brand em { font-style: italic; color: var(--gold); }
+.footer-tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(245, 237, 220, 0.7);
+    max-width: 340px;
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
+}
+.footer-social { display: flex; gap: 0.6rem; }
+.footer-social a {
+    width: 38px; height: 38px;
+    border: 1px solid rgba(245, 237, 220, 0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245, 237, 220, 0.7);
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+}
+.footer-social a:hover { border-color: var(--gold); color: var(--gold); }
+.footer-col h5 {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+    font-weight: 600;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.65rem; }
+.footer-col a {
+    color: rgba(245, 237, 220, 0.7);
+    font-size: 0.9rem;
+    transition: color var(--transition-fast);
+}
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    font-size: 0.78rem;
+    color: rgba(245, 237, 220, 0.5);
+    padding-top: 1.5rem;
+}
+.footer-bottom a:hover { color: var(--gold); }
+@media (max-width: 968px) {
+    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 580px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; }
+}
+
+/* REVEAL ANIMATIONS */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    animation: cssRevealFallback 0.9s ease 2.3s forwards;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); animation: none; }
+@keyframes cssRevealFallback { to { opacity: 1; transform: none; } }
+
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; }
+.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.25s; }
+.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.35s; }
+.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.45s; }
+.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.55s; }
+.reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    section { padding: 5rem 0; }
+    .container { padding: 0 1.4rem; }
+    .nav-inner, .masthead-top-inner { padding: 0 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="page-loader" id="pageLoader">
+    <div class="loader-mark">Roi<em>eventos</em></div>
+    <div class="loader-line"></div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead" id="masthead">
+    <div class="masthead-top">
+        <div class="masthead-top-inner">
+            <div>Naroe Consulting SL · <span>Consultoría económica especializada en eventos</span></div>
+            <div>Edición Vol. <span>VII</span> · 2026</div>
+        </div>
+    </div>
+    <div class="masthead-main">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-brand"><span class="dot"></span>Roi<em>eventos</em></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#datos">Datos</a></li>
+                <li><a href="#metodologia">Metodología</a></li>
+                <li><a href="#sectores">Sectores</a></li>
+                <li><a href="#casos">Casos</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Menú">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-text">
+                <div class="hero-issue reveal">
+                    <span>N.º 01</span>
+                    <div>Consultoría económica</div>
+                    <div>Festivales · Conciertos · Eventos</div>
+                </div>
+                <h1 class="reveal">El retorno de un evento <em>se mide</em>, no se intuye.</h1>
+                <div class="hero-deck reveal">Consultoría especializada en PreROI, ROI y Estudios de Impacto Económico para festivales, conciertos y producciones culturales. Análisis riguroso, metodología auditable, decisiones fundamentadas.</div>
+                <div class="hero-byline reveal">
+                    <div class="byline-item">
+                        <div class="label">Por</div>
+                        <div class="value">Naroe Valls O'Shanahan</div>
+                    </div>
+                    <div class="byline-item">
+                        <div class="label">&nbsp;</div>
+                        <div class="value">Borja Sánchez de Benito</div>
+                    </div>
+                    <div class="byline-item">
+                        <div class="label">Sedes</div>
+                        <div class="value">Tenerife · Gran Canaria</div>
+                    </div>
+                </div>
+                <div class="hero-ctas reveal">
+                    <a href="#contacto" class="btn btn-primary">Solicitar propuesta <i class="fas fa-arrow-right"></i></a>
+                    <a href="#datos" class="btn btn-ghost">Ver datos</a>
+                </div>
+            </div>
+            <div class="hero-visual reveal-stagger">
+                <div class="hero-imgframe">
+                    <div class="hero-imgframe-img" style="background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80');"></div>
+                </div>
+                <div class="hero-card">
+                    <div class="hero-card-title">Estudio de Impacto Económico</div>
+                    <div class="hero-card-sub">Festival multitudinario · ejemplo</div>
+                    <div class="hero-bigfig">18,4<em> M€</em></div>
+                    <div class="hero-bigfig-label">Impacto económico generado en territorio</div>
+                    <div class="hero-mini-bars">
+                        <div class="mini-bar">
+                            <span class="mini-bar-label">Directo</span>
+                            <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 42%;"></div></div>
+                            <span class="mini-bar-val">7,7M</span>
+                        </div>
+                        <div class="mini-bar">
+                            <span class="mini-bar-label">Indirecto</span>
+                            <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 32%;"></div></div>
+                            <span class="mini-bar-val">5,9M</span>
+                        </div>
+                        <div class="mini-bar gold">
+                            <span class="mini-bar-label">Inducido</span>
+                            <div class="mini-bar-track"><div class="mini-bar-fill" style="width: 26%;"></div></div>
+                            <span class="mini-bar-val">4,8M</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STATS strip -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid reveal-stagger">
+            <div class="stat-item">
+                <span class="stat-num">120<em>+</em></span>
+                <div class="stat-label">Eventos analizados desde 2018</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">350<em> M€</em></span>
+                <div class="stat-label">Impacto económico total medido</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">2,5<em> M+</em></span>
+                <div class="stat-label">Asistentes estudiados</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">7<em> años</em></span>
+                <div class="stat-label">De experiencia en el sector</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PHOTO STRIP MOSAIC -->
+<section class="photostrip">
+    <div class="photostrip-grid">
+        <div class="photostrip-cell">
+            <div class="photostrip-img" style="background-image: url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="photostrip-caption"><span>01 / Festivales</span>Música y multitud</div>
+        </div>
+        <div class="photostrip-cell">
+            <div class="photostrip-img" style="background-image: url('https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="photostrip-caption"><span>02 / Conciertos</span>Escenarios y giras</div>
+        </div>
+        <div class="photostrip-cell">
+            <div class="photostrip-img" style="background-image: url('https://images.unsplash.com/photo-1539020140153-e479b8c5a5b1?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="photostrip-caption"><span>03 / Canarias</span>Marca-destino</div>
+        </div>
+        <div class="photostrip-cell">
+            <div class="photostrip-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="photostrip-caption"><span>04 / Cultura</span>Eventos patrimoniales</div>
+        </div>
+        <div class="photostrip-cell">
+            <div class="photostrip-img" style="background-image: url('https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="photostrip-caption"><span>05 / Audiencias</span>Impacto medible</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-number">Sección I · Servicios</div>
+            <h2>Tres servicios. Un mismo<br>compromiso con el rigor.</h2>
+            <div class="subhead">Cubrimos todo el ciclo del evento, desde la previsión y justificación de inversión hasta la medición del impacto real una vez celebrado.</div>
+        </div>
+        <div class="services-grid reveal-stagger">
+            <div class="service-col">
+                <div class="service-col-num">01</div>
+                <h3>Estudios <em>PreROI</em></h3>
+                <p>Análisis de viabilidad económica previo al evento. Cuantificamos el retorno esperado para soportar la decisión de inversión, pública o privada.</p>
+                <ul>
+                    <li>Previsión de impacto económico</li>
+                    <li>Modelización de escenarios</li>
+                    <li>Análisis coste-beneficio</li>
+                    <li>Memoria justificativa de inversión</li>
+                </ul>
+            </div>
+            <div class="service-col">
+                <div class="service-col-num">02</div>
+                <h3>Estudios <em>ROI</em></h3>
+                <p>Medición del retorno real una vez celebrado el evento. Calculamos el ROI publicitario, mediático y económico con metodologías auditables.</p>
+                <ul>
+                    <li>ROI publicitario y mediático</li>
+                    <li>Análisis de audiencias e impactos</li>
+                    <li>Cobertura en medios y RRSS</li>
+                    <li>Informe ejecutivo y técnico</li>
+                </ul>
+            </div>
+            <div class="service-col">
+                <div class="service-col-num">03</div>
+                <h3>Estudios de <em>Impacto Económico</em></h3>
+                <p>Evaluación integral del impacto del evento sobre el territorio: PIB local, empleo, gasto turístico, efecto multiplicador y huella mediática.</p>
+                <ul>
+                    <li>Impacto directo, indirecto e inducido</li>
+                    <li>Encuestas a asistentes</li>
+                    <li>Generación de empleo y rentas</li>
+                    <li>Comparativas sectoriales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DATOS / INFOGRAFÍAS -->
+<section class="data-feature" id="datos">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-number">Sección II · Datos y resultados</div>
+            <h2>Las cifras detrás<br>de nuestros estudios.</h2>
+        </div>
+        <div class="data-intro reveal">
+            <p class="dropcap">Trabajamos con datos verificables, no con percepciones. Cada estudio publicado por Roieventos puede defenderse ante un comité de inversión, una administración o un consejo de auditoría con la documentación íntegra del proceso.</p>
+            <div class="data-cta">
+                <strong>x4,8</strong>
+                Retorno medio en euros generados por cada euro invertido en los eventos analizados durante el último ciclo.
+            </div>
+        </div>
+
+        <!-- Infografía 1: Barras de impacto económico -->
+        <div class="infographic-grid">
+            <div class="infographic-card reveal-stagger">
+                <div class="infographic-card-head">
+                    <div class="infographic-card-title">Impacto económico por tipología de evento</div>
+                    <div class="infographic-card-num">Fig. 01 · M€ medios</div>
+                </div>
+                <div class="bars-chart">
+                    <div class="bar-row">
+                        <div class="bar-label">Festival de música multitudinario</div>
+                        <div class="bar-track"><div class="bar-fill" style="--scale: 0.95;"></div></div>
+                        <div class="bar-value">18,4 M€</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Evento turístico institucional</div>
+                        <div class="bar-track"><div class="bar-fill" style="--scale: 0.78;"></div></div>
+                        <div class="bar-value">14,2 M€</div>
+                    </div>
+                    <div class="bar-row gold">
+                        <div class="bar-label">Concierto / artista internacional</div>
+                        <div class="bar-track"><div class="bar-fill" style="--scale: 0.58;"></div></div>
+                        <div class="bar-value">9,6 M€</div>
+                    </div>
+                    <div class="bar-row">
+                        <div class="bar-label">Evento cultural / carnaval</div>
+                        <div class="bar-track"><div class="bar-fill" style="--scale: 0.46;"></div></div>
+                        <div class="bar-value">7,3 M€</div>
+                    </div>
+                    <div class="bar-row gold">
+                        <div class="bar-label">Evento corporativo / MICE</div>
+                        <div class="bar-track"><div class="bar-fill" style="--scale: 0.28;"></div></div>
+                        <div class="bar-value">3,8 M€</div>
+                    </div>
+                </div>
+                <div class="infographic-card-foot">Promedio del impacto económico medido en eventos comparables. Cifras orientativas basadas en estudios reales realizados por Naroe Consulting.</div>
+            </div>
+
+            <!-- Infografía 2: Donut chart -->
+            <div class="infographic-card reveal-stagger">
+                <div class="infographic-card-head">
+                    <div class="infographic-card-title">Distribución del retorno</div>
+                    <div class="infographic-card-num">Fig. 02 · %</div>
+                </div>
+                <div class="donut-wrap">
+                    <svg class="donut-svg" viewBox="0 0 100 100">
+                        <!-- background ring -->
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#E8DFCB" stroke-width="14"/>
+                        <!-- Segments using stroke-dasharray. Circumference = 2*PI*40 ≈ 251.327 -->
+                        <!-- 38% Mediático: 95.5 / 251.3 -->
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#722F37" stroke-width="14"
+                            stroke-dasharray="95.5 251.3" stroke-dashoffset="0"
+                            transform="rotate(-90 50 50)"/>
+                        <!-- 27% Gasto en destino: 67.9 -->
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#8B3A42" stroke-width="14"
+                            stroke-dasharray="67.9 251.3" stroke-dashoffset="-95.5"
+                            transform="rotate(-90 50 50)"/>
+                        <!-- 22% Pernoctaciones: 55.3 -->
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#C9A961" stroke-width="14"
+                            stroke-dasharray="55.3 251.3" stroke-dashoffset="-163.4"
+                            transform="rotate(-90 50 50)"/>
+                        <!-- 13% Marca-destino: 32.7 -->
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#D9BD7F" stroke-width="14"
+                            stroke-dasharray="32.7 251.3" stroke-dashoffset="-218.7"
+                            transform="rotate(-90 50 50)"/>
+                        <text x="50" y="48" text-anchor="middle" font-family="Playfair Display, serif" font-size="11" font-weight="700" fill="#2C1810">100%</text>
+                        <text x="50" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="4" fill="#8B7A6F" letter-spacing="0.8">RETORNO</text>
+                    </svg>
+                    <div class="donut-legend">
+                        <div class="legend-item">
+                            <div class="legend-left">
+                                <span class="legend-dot" style="background: #722F37;"></span>
+                                <span class="legend-label">Mediático y publicitario</span>
+                            </div>
+                            <span class="legend-value">38%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-left">
+                                <span class="legend-dot" style="background: #8B3A42;"></span>
+                                <span class="legend-label">Gasto en destino</span>
+                            </div>
+                            <span class="legend-value">27%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-left">
+                                <span class="legend-dot" style="background: #C9A961;"></span>
+                                <span class="legend-label">Pernoctaciones</span>
+                            </div>
+                            <span class="legend-value">22%</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-left">
+                                <span class="legend-dot" style="background: #D9BD7F;"></span>
+                                <span class="legend-label">Marca-destino</span>
+                            </div>
+                            <span class="legend-value">13%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="infographic-card-foot">Distribución media del retorno generado por un evento turístico-cultural según los componentes medidos por nuestra metodología.</div>
+            </div>
+
+            <!-- Infografía 3: Multiplicador económico -->
+            <div class="infographic-card full reveal-stagger">
+                <div class="infographic-card-head">
+                    <div class="infographic-card-title">Efecto multiplicador económico</div>
+                    <div class="infographic-card-num">Fig. 03 · Cómo se compone el impacto total</div>
+                </div>
+                <div class="multiplier-chart">
+                    <div class="multiplier-row">
+                        <div class="mp-label">Directo<small>Gasto del evento y asistentes</small></div>
+                        <div class="mp-bar-wrap"><div class="mp-bar direct" style="--scale: 0.42;"></div></div>
+                        <div class="mp-value">7,7 M€</div>
+                    </div>
+                    <div class="multiplier-row">
+                        <div class="mp-label">Indirecto<small>Cadena de proveedores y suministros</small></div>
+                        <div class="mp-bar-wrap"><div class="mp-bar indirect" style="--scale: 0.72;"></div></div>
+                        <div class="mp-value">+ 5,9 M€</div>
+                    </div>
+                    <div class="multiplier-row">
+                        <div class="mp-label">Inducido<small>Consumo de las rentas generadas</small></div>
+                        <div class="mp-bar-wrap"><div class="mp-bar induced" style="--scale: 0.95;"></div></div>
+                        <div class="mp-value">+ 4,8 M€</div>
+                    </div>
+                    <div class="multiplier-row total">
+                        <div class="mp-label">Impacto total<small>Suma del efecto multiplicador</small></div>
+                        <div class="mp-bar-wrap"><div class="mp-bar total" style="--scale: 1;"></div></div>
+                        <div class="mp-value">18,4 M€</div>
+                    </div>
+                </div>
+                <div class="infographic-card-foot">El efecto multiplicador refleja cómo un euro inyectado en el evento se traduce en una cifra mayor de actividad económica al rebotar entre proveedores y rentas de los hogares.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- METODOLOGÍA -->
+<section class="methodology" id="metodologia">
+    <div class="container">
+        <div class="section-header center reveal">
+            <div class="section-number">Sección III · Metodología</div>
+            <h2>Cuatro etapas. Una metodología<br><em>auditable de principio a fin.</em></h2>
+            <div class="subhead">Cada conclusión está respaldada por datos verificables y trazables, siguiendo estándares económicos reconocidos.</div>
+        </div>
+        <div class="method-timeline reveal-stagger">
+            <div class="method-timeline-line"></div>
+            <div class="method-steps">
+                <div class="method-step">
+                    <div class="method-step-circle">i</div>
+                    <div class="method-step-icon"><i class="fas fa-magnifying-glass"></i></div>
+                    <h4>Inmersión</h4>
+                    <p>Análisis del evento, sus objetivos, presupuesto, público y entorno competitivo. Definimos qué hay que medir.</p>
+                </div>
+                <div class="method-step">
+                    <div class="method-step-circle">ii</div>
+                    <div class="method-step-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h4>Recogida de datos</h4>
+                    <p>Encuestas a asistentes, análisis de cobertura mediática, monitorización digital, datos de venta y gasto en destino.</p>
+                </div>
+                <div class="method-step">
+                    <div class="method-step-circle">iii</div>
+                    <div class="method-step-icon"><i class="fas fa-chart-column"></i></div>
+                    <h4>Modelización</h4>
+                    <p>Modelos input-output, multiplicadores económicos y valoración publicitaria sobre la base de datos recopilada.</p>
+                </div>
+                <div class="method-step">
+                    <div class="method-step-circle">iv</div>
+                    <div class="method-step-icon"><i class="fas fa-file-lines"></i></div>
+                    <h4>Entrega</h4>
+                    <p>Informe ejecutivo + dossier técnico. Defensa pública si se requiere. Recomendaciones para futuras ediciones.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTORES -->
+<section class="sectors" id="sectores">
+    <div class="container">
+        <div class="section-header center reveal">
+            <div class="section-number">Sección IV · Especialización</div>
+            <h2>Donde aportamos<br>conocimiento especializado.</h2>
+            <div class="subhead">Especialistas en eventos donde el marketing, la marca-destino y el retorno son críticos. Profundo conocimiento del ecosistema canario.</div>
+        </div>
+        <div class="sectors-grid reveal-stagger">
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-music"></i></div>
+                <div class="sector-card-num">01</div>
+                <h4>Festivales de música</h4>
+                <p>Estudios de impacto para festivales de gran formato y eventos multitudinarios en Canarias y Península.</p>
+            </div>
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-guitar"></i></div>
+                <div class="sector-card-num">02</div>
+                <h4>Conciertos y giras</h4>
+                <p>Medición del retorno mediático y económico de conciertos de artistas nacionales e internacionales.</p>
+            </div>
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-masks-theater"></i></div>
+                <div class="sector-card-num">03</div>
+                <h4>Eventos culturales</h4>
+                <p>Carnavales, ferias, festivales escénicos, eventos patrimoniales y producciones culturales.</p>
+            </div>
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-globe-europe"></i></div>
+                <div class="sector-card-num">04</div>
+                <h4>Turismo y marca-destino</h4>
+                <p>Promotur, Turismo de Tenerife y entidades regionales. Eventos como herramienta de promoción.</p>
+            </div>
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-landmark"></i></div>
+                <div class="sector-card-num">05</div>
+                <h4>Sector público</h4>
+                <p>Ayuntamientos, cabildos y sociedades de desarrollo. Justificación de inversión y rendición de cuentas.</p>
+            </div>
+            <div class="sector-card">
+                <div class="sector-card-icon"><i class="fas fa-clapperboard"></i></div>
+                <div class="sector-card-num">06</div>
+                <h4>Productoras de eventos</h4>
+                <p>Soporte a productoras en propuestas, justificaciones y memorias post-evento para sus clientes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURE BANNER full-bleed -->
+<section class="feature-banner" style="background-image: url('https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?auto=format&fit=crop&w=2000&q=80');">
+    <div class="container">
+        <div class="feature-banner-content reveal">
+            <div class="feature-banner-tag">Reportaje · Sector festivales</div>
+            <h2>Cada concierto deja una huella económica <em>medible</em>.</h2>
+            <p>Pernoctaciones, gasto en restauración, transporte, retorno mediático, empleo asociado. Lo invisible se vuelve cuantificable cuando se aplica la metodología adecuada.</p>
+        </div>
+    </div>
+    <div class="photo-credit">Imagen ilustrativa · sector eventos</div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullquote-section">
+    <div class="container-narrow">
+        <div class="pullquote-content reveal">
+            <blockquote>"Sin datos, una inversión en eventos es un acto de fe. <em>Nosotros la convertimos en una decisión informada.</em>"</blockquote>
+            <div class="pullquote-attribution">Naroe Consulting · Equipo Roieventos</div>
+        </div>
+    </div>
+</section>
+
+<!-- CASOS DE ÉXITO -->
+<section class="cases" id="casos">
+    <div class="container">
+        <div class="section-header reveal">
+            <div class="section-number">Sección V · Trabajos destacados</div>
+            <h2>Casos donde nuestros<br>estudios marcaron la diferencia.</h2>
+            <div class="subhead">Una selección de proyectos donde nuestra consultoría ha aportado valor cuantificable al cliente y al territorio.</div>
+        </div>
+        <div class="cases-list reveal-stagger">
+            <div class="case-row">
+                <div class="case-num">i</div>
+                <div class="case-info">
+                    <div class="case-tag">Festival de música</div>
+                    <h4>Cook Music Fest · <em>Estudio de Impacto</em></h4>
+                </div>
+                <div class="case-desc">Análisis del impacto económico y mediático del festival sobre la economía local, la pernoctación y la imagen del destino.</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <span class="num">18 M€</span>
+                        <span class="label">Impacto total</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="num">x 5,2</span>
+                        <span class="label">ROI publicitario</span>
+                    </div>
+                </div>
+            </div>
+            <div class="case-row">
+                <div class="case-num">ii</div>
+                <div class="case-info">
+                    <div class="case-tag">Turismo institucional</div>
+                    <h4>Turismo de Tenerife · <em>Eventos patrocinados</em></h4>
+                </div>
+                <div class="case-desc">Medición del retorno de la inversión en patrocinios deportivos y culturales sobre la marca-destino Tenerife.</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <span class="num">+ 60</span>
+                        <span class="label">Eventos medidos</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="num">x 7,8</span>
+                        <span class="label">Retorno mediático</span>
+                    </div>
+                </div>
+            </div>
+            <div class="case-row">
+                <div class="case-num">iii</div>
+                <div class="case-info">
+                    <div class="case-tag">Atracción turística</div>
+                    <h4>Loro Parque · <em>Impacto socioeconómico</em></h4>
+                </div>
+                <div class="case-desc">Evaluación del impacto sobre el PIB, el empleo y la cadena de valor turística del archipiélago canario.</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <span class="num">+ 250 M€</span>
+                        <span class="label">Impacto Canarias</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="num">3 000+</span>
+                        <span class="label">Empleos asociados</span>
+                    </div>
+                </div>
+            </div>
+            <div class="case-row">
+                <div class="case-num">iv</div>
+                <div class="case-info">
+                    <div class="case-tag">Sector público</div>
+                    <h4>Ayto. Santiago del Teide · <em>Memoria evento estival</em></h4>
+                </div>
+                <div class="case-desc">Justificación económica y mediática del programa de eventos del municipio durante la temporada alta.</div>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <span class="num">x 4,1</span>
+                        <span class="label">Retorno inversión</span>
+                    </div>
+                    <div class="case-metric">
+                        <span class="num">95 000</span>
+                        <span class="label">Asistentes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLIENTES -->
+<section class="clients">
+    <div class="container">
+        <div class="section-header center reveal">
+            <div class="section-number">Sección VI · Clientes</div>
+            <h2>Confían en nosotros<br>quienes marcan la agenda.</h2>
+            <div class="subhead">Trabajamos con instituciones, productoras y entidades que protagonizan la actividad cultural y turística de Canarias.</div>
+        </div>
+        <div class="clients-grid reveal-stagger">
+            <div class="client-cell"><div class="name">Turismo de Tenerife<em>Institución</em></div></div>
+            <div class="client-cell"><div class="name">Promotur<em>Turismo Islas Canarias</em></div></div>
+            <div class="client-cell"><div class="name">Loro Parque<em>Atracción</em></div></div>
+            <div class="client-cell"><div class="name">Cook Music Fest<em>Festival</em></div></div>
+            <div class="client-cell"><div class="name">DN7 Eventos<em>Productora</em></div></div>
+            <div class="client-cell"><div class="name">La Carpa<em>Fuerteventura</em></div></div>
+            <div class="client-cell"><div class="name">Grupo Run Run<em>Productora</em></div></div>
+            <div class="client-cell"><div class="name">Ayto. Santiago del Teide<em>Administración</em></div></div>
+            <div class="client-cell"><div class="name">PD Eventos<em>Productora</em></div></div>
+            <div class="client-cell"><div class="name">Sociedad Desarrollo Tenerife<em>Entidad pública</em></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="team" id="equipo">
+    <div class="container">
+        <div class="section-header center reveal">
+            <div class="section-number">Sección VII · Equipo</div>
+            <h2>Dos perfiles complementarios<br>al frente de cada proyecto.</h2>
+            <div class="subhead">Naroe Consulting SL combina experiencia en el sector de eventos con rigor económico.</div>
+        </div>
+        <div class="team-grid reveal-stagger">
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="team-init">NV</div>
+                    <h4>Naroe Valls O'Shanahan</h4>
+                    <div class="team-role">Director · Consultor principal</div>
+                </div>
+                <div class="team-body">
+                    <p class="team-bio">Más de una década de experiencia en el ecosistema de eventos, festivales y comunicación en Canarias. Lidera la consultoría estratégica y la relación con clientes institucionales como Promotur y Turismo de Tenerife.</p>
+                    <div class="team-expertise">
+                        <span>ESTRATEGIA</span>
+                        <span>COMUNICACIÓN</span>
+                        <span>FESTIVALES</span>
+                        <span>TURISMO</span>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:naroe@roieventos.es" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-card-header">
+                    <div class="team-init">BS</div>
+                    <h4>Borja Sánchez de Benito</h4>
+                    <div class="team-role">Economista · Consultor senior</div>
+                </div>
+                <div class="team-body">
+                    <p class="team-bio">Economista especializado en modelización de impacto económico, análisis input-output y valoración publicitaria. Responsable de la metodología cuantitativa de los estudios PreROI, ROI y Estudios de Impacto.</p>
+                    <div class="team-expertise">
+                        <span>ECONOMÍA</span>
+                        <span>INPUT-OUTPUT</span>
+                        <span>ROI</span>
+                        <span>DATOS</span>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:borja@roieventos.es" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+    <div class="container-narrow reveal">
+        <div class="section-number">Hablemos de tu evento</div>
+        <h2>¿Vas a celebrar un evento?<br><em>Cuantifiquemos su retorno.</em></h2>
+        <div class="cta-decoration"></div>
+        <p>Te enviamos una propuesta a medida en 72 horas. Sin compromiso, con claridad sobre alcance y honorarios.</p>
+        <a href="#contacto" class="btn btn-primary">Iniciar conversación <i class="fas fa-arrow-right"></i></a>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contacto">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <div class="section-number">Sección VIII · Contacto</div>
+                <h2>Hablemos de tu<br>próximo proyecto.</h2>
+                <p>Cuéntanos qué evento estás organizando o qué necesitas medir. Respondemos a todas las solicitudes en 24-48 horas con una primera valoración.</p>
+                <div class="contact-detail">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <div class="label">Email</div>
+                        <div class="value"><a href="mailto:hola@roieventos.es">hola@roieventos.es</a></div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <div class="label">Teléfono</div>
+                        <div class="value"><a href="tel:+34922000000">+34 922 00 00 00</a></div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <div class="label">Oficinas</div>
+                        <div class="value">Santa Cruz de Tenerife<br>Las Palmas de Gran Canaria</div>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <div class="label">Entidad jurídica</div>
+                        <div class="value">Naroe Consulting SL</div>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form reveal" id="contactForm" action="mailto:hola@roieventos.es" method="post" enctype="text/plain">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Empresa / institución</label>
+                        <input type="text" name="empresa">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de servicio</label>
+                        <select name="servicio">
+                            <option>Estudio PreROI</option>
+                            <option>Estudio ROI</option>
+                            <option>Estudio de Impacto</option>
+                            <option>Otro / a medida</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cuéntanos sobre el evento</label>
+                    <textarea name="mensaje" rows="3" placeholder="Tipo de evento, fechas previstas, presupuesto orientativo..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar solicitud <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand-col">
+                <div class="footer-brand">Roi<em>eventos</em></div>
+                <div class="footer-tagline">Consultoría especializada en ROI, PreROI y Estudios de Impacto Económico para eventos. Una marca de Naroe Consulting SL.</div>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:hola@roieventos.es" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Servicios</h5>
+                <ul>
+                    <li><a href="#servicios">PreROI</a></li>
+                    <li><a href="#servicios">ROI</a></li>
+                    <li><a href="#servicios">Estudios de Impacto</a></li>
+                    <li><a href="#datos">Datos</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Empresa</h5>
+                <ul>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#casos">Casos de éxito</a></li>
+                    <li><a href="#metodologia">Metodología</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Sectores</h5>
+                <ul>
+                    <li><a href="#sectores">Festivales</a></li>
+                    <li><a href="#sectores">Conciertos</a></li>
+                    <li><a href="#sectores">Turismo</a></li>
+                    <li><a href="#sectores">Sector público</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© 2026 Naroe Consulting SL · Todos los derechos reservados</div>
+            <div>
+                <a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function() {
+    'use strict';
+    try {
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var loader = document.getElementById('pageLoader');
+                if (loader) loader.classList.add('hidden');
+            }, 1500);
+        });
+        setTimeout(function() {
+            var loader = document.getElementById('pageLoader');
+            if (loader) loader.classList.add('hidden');
+        }, 2800);
+    } catch (e) { console.warn(e); }
+
+    try {
+        var ham = document.getElementById('hamburger');
+        var menu = document.getElementById('navMenu');
+        if (ham && menu) {
+            ham.addEventListener('click', function() { menu.classList.toggle('open'); });
+            menu.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() { menu.classList.remove('open'); });
+            });
+        }
+    } catch (e) { console.warn(e); }
+
+    try {
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+            document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+                observer.observe(el);
+            });
+        } else {
+            document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+                el.classList.add('visible');
+            });
+        }
+    } catch (e) {
+        console.warn(e);
+        document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+            el.classList.add('visible');
+        });
+    }
+})();
+</script>
+
+</body>
+</html>
